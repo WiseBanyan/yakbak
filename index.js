@@ -56,6 +56,9 @@ module.exports = function (host, opts) {
       /* eslint-enable no-console */
       res.statusCode = err.status;
       res.end(err.message);
+    }).catch(function(err) {
+        res.statusCode = 503;
+        res.end(err.message);
     });
 
   };
